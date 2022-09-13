@@ -1,0 +1,14 @@
+{
+  "name": "antino_pms",
+  "version": "1.0.0",
+  "description": "Antino Project Management System",
+  "scripts": {
+    "start": "sam build && cross-env NODE_PATH=./shared/code/nodejs/node_modules:./shared/lib/nodejs/node_modules  sam local start-api"
+  },
+  "author": "Raj Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "crossenv": "^0.0.2-security"
+  }
+}
