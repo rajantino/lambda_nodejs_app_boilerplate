@@ -1,5 +1,5 @@
 const dao = require('./dao');
-const bcrypt =require('bcryptjs');
+const bcrypt =require('bcrypt');
 
 exports.signUp = async (data)=>{
     try{

@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Antino Project Management System",
   "scripts": {
-    "start": "sam build && cross-env NODE_PATH=./shared/code/nodejs/node_modules:./shared/lib/nodejs/node_modules  sam local start-api"
+    "start": "cross-env NODE_PATH=./shared/code/nodejs/node_modules:./shared/lib/nodejs/node_modules  sam local start-api -p 3061",
+    "watch":"nodemon -e yaml,js,json --exec sam build"
   },
   "author": "Raj Sharma",
   "license": "ISC",
   "dependencies": {
-    "cross-env": "^7.0.3",
-    "crossenv": "^0.0.2-security"
+    "cross-env": "^7.0.3"
   }
 }

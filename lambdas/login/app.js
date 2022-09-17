@@ -1,6 +1,6 @@
 const response = require('antinoPms_response');
-const signupService = require('./service');
-const userJoiSchema = require('antinoPms_users_joiSchema');
+const loginService = require('./service');
+const { loginJoiSchema } = require('antinoPms_login_joiSchema');
 
 
 exports.lambdaHandler = async (event, context, callback) => {
@@ -8,7 +8,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
         switch (event.httpMethod) {
             case "POST":
-                return await signup(event);
+                return await login(event);
             case "GET":
                 return await response.prepareResponse(200, {}, "get");
             case "PUT":
@@ -18,6 +18,8 @@ exports.lambdaHandler = async (event, context, callback) => {
 
         }
 
+
+
     } catch (err) {
         const { message = "", errorCode = 400 } = err;
         let lambdaResponse = await response.prepareResponse(errorCode, {}, message || "failure");
@@ -26,18 +28,17 @@ exports.lambdaHandler = async (event, context, callback) => {
 
 };
 
-
-const signup = async (event) => {
-
+const login = async (event) => {
     try {
         let requestBody = JSON.parse(event.body);
         /* Request Body Validation */
-        const { error } = userJoiSchema.userJoiSchema.validate(requestBody);
+        const { error } = loginJoiSchema.validate(requestBody);
         if (error) {
-            return await response.prepareResponse(400, {}, error?.details[0]?.message || "Bad Request");
+            let lambdaResponse = await response.prepareResponse(400, {}, error?.details[0]?.message || "Bad Request");
+            return lambdaResponse;
         }
 
-        let data = await signupService.signUp(requestBody);
+        let data = await loginService.login(requestBody);
         let lambdaResponse = await response.prepareResponse(200, data, "success");
         return lambdaResponse;
     }
