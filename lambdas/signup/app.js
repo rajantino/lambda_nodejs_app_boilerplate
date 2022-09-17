@@ -6,6 +6,11 @@
 
  exports.lambdaHandler = async (event, context, callback) => {
     try {
+        /* handle cors issue */
+        if(event.httpMethod == "OPTIONS"){
+            let lambdaResponse = await response.prepareResponse(200, {}, "preflight");
+            return lambdaResponse;
+        }
         let requestBody = JSON.parse(event.body);
         /* Request Body Validation */
         const { error } =  userJoiSchema.userJoiSchema.validate(requestBody);

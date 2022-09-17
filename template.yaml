@@ -6,14 +6,15 @@ Description: >
   Sample SAM Template for lambda-nodejs14.x
   
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
-Globals:
+Globals:   
   Function:
-    Timeout: 3
+    Timeout: 500
 
 Resources:
-  HelloWorldFunction:
+  SignupFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
+      FunctionName: Signup
       CodeUri: lambdas/signup
       Handler: app.lambdaHandler
       Timeout: 900
@@ -24,26 +25,28 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
+        SignupApi:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /signup
-            Method: POST
+            Method: ANY
   LibLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
       LayerName: lib
-      Description: common libraries (used by the code layer or λs)
+      Description: common npm libraries (used by the code layer or lambdas)
       ContentUri: shared/lib/
       CompatibleRuntimes:
-        - nodejs12.x
+        - nodejs14.x
+      RetentionPolicy: Delete
 
   CodeLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
       LayerName: code
-      Description: common code that λs can share
+      Description: common code that lambdas can share
       ContentUri: shared/code/
       CompatibleRuntimes:
-        - nodejs12.x
+        - nodejs14.x
+      RetentionPolicy: Delete
 
