@@ -130,7 +130,7 @@ To achieve this We have created 2 Layers
 
 
  # Import npm modules and common code (util files) with all lambdas
-
+<pre>
    Case (1) -> When Lambdas Deployed on AWS 
                - when deployed to aws we can import both i.e util file and npm modules like below 
                   - const bcrypt =require('bcrypt');  
@@ -141,6 +141,7 @@ To achieve this We have created 2 Layers
               and 
               2) ./shared/lib/nodejs/node_modules
               
-              in package.json start script. that is why const roleMiddleware = require('antinoPms_middlewares') works fine in local development also.
+    in package.json start script. that is why const roleMiddleware = require('antinoPms_middlewares') works fine in local development also.
 
 
+<pre>
