@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Antino Project Management System",
   "scripts": {
-    "start": "cross-env NODE_PATH=./shared/code/nodejs/node_modules:./shared/lib/nodejs/node_modules  sam local start-api -p 3061",
+    "start": "cross-env NODE_PATH=./shared/code/nodejs/node_modules:./shared/lib/nodejs/node_modules  sam local start-api -p 3061 --skip-pull-image",
     "watch":"nodemon -e yaml,js,json --exec sam build"
   },
   "author": "Raj Sharma",
