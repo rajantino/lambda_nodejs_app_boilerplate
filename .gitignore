@@ -209,3 +209,4 @@ $RECYCLE.BIN/
 
 shared/lib/nodejs/*/
 shared/lib/nodejs/package-lock.json
+/package-lock.json
