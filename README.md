@@ -95,11 +95,27 @@ f) shared/code/nodejs/node_modules/antinoPms_config ---> this file is having cre
 
   b) for development also if you are using some cloud Database service  step (a) is not required simple put the details you got from cloud service provider in database config
 
-5) run 'npm run watch' in one terminal , on this terminal nodemon will watch for changes in js,yaml and json files and build the application so we don't have to build the app everytime we make any change in code
-6) run 'npm run start' on other terminal, it will start the application and all lambdas will be deployed locally with the help of docker container
+5) 
+a) create database
+
+b) create table ---->   
+create table pmsusers(
+id int NOT NULL AUTO_INCREMENT,
+firstName varchar(100),
+lastName varchar(100),
+email varchar(100) UNIQUE,
+password varchar(200) NOT NULL,
+role varchar(45),
+ PRIMARY KEY (id)
+)
+
+c) update DB config details in shared/code/nodejs/node_modules/antinoPms_config
+
+6) run 'npm run watch' in one terminal , on this terminal nodemon will watch for changes in js,yaml and json files and build the application so we don't have to build the app everytime we make any change in code
+7) run 'npm run start' on other terminal, it will start the application and all lambdas will be deployed locally with the help of docker container
     
-7) When we change in yaml file we need to stop currently running sam cli (CTRL + C/X) and start again by running 'npm run start'
-8) hit localhost:3061/signup [POST] through postman with payload
+8) When we change in yaml file we need to stop currently running sam cli (CTRL + C/X) and start again by running 'npm run start'
+9) hit localhost:3061/signup [POST] through postman with payload
 {
     "firstName":"john",
     "lastName":"doe",
@@ -110,7 +126,7 @@ f) shared/code/nodejs/node_modules/antinoPms_config ---> this file is having cre
 
 Create a user with role 'user' and create another user having role 'admin'
 
-9) Login api [POST]
+10) Login api [POST]
 localhost:3061/login
 
 {
@@ -118,10 +134,10 @@ localhost:3061/login
     "password":"password"
 }
 
-10) localhost:3061/profile [GET]
+11) localhost:3061/profile [GET]
 set Bearer token in headers
 
-11) we can change the port from 'start' script in package.json
+12) we can change the port from 'start' script in package.json
 </pre>
 
 # Deploy to AWS 
