@@ -16,7 +16,7 @@ This Boilerplate is Created by Using
 Folder Structure
 
 ├── lambdas 
-  |── signup                       # every lambda will have its own folder and will be having app.js , service.js and dao.js files inside it
+  |── signup                       
     |──────── app.js
     |──────── service.js
     |──────── dao.js  
@@ -32,15 +32,24 @@ Folder Structure
 ├── shared                    
   ├── code
     |──────── nodes
-         |──────── node_modules        # this folder will be having the common code shared throught the application (all lambdas) like utils
+         |──────── node_modules       
                           
   ├── lib
     |──────── nodes
          |──────── package.json   
-         |──────── node_modules      # this folder will be having all npm modules used throughout all the lambda functions
+         |──────── node_modules      
 
-├── package.json        # this file is used just for local development purpose to run the start and watch script with cross-env  and nodemon              
-└── template.yaml                    # in this file we define our aws resources using cloudformation 
+├── package.json                     
+└── template.yaml                   
+
+
+
+
+# every lambda will have its own folder and will be having app.js , service.js and dao.js files inside it
+ # this folder will be having the common code shared throught the application (all lambdas) like utils
+ # this folder will be having all npm modules used throughout all the lambda functions
+ # this file is used just for local development purpose to run the start and watch script with cross-env  and nodemon 
+  # in this file we define our aws resources using cloudformation 
 
 
 shared/code/nodejs/node_modules/antinoPms_config  is havind creds so it is included in .gitignore file
