@@ -207,6 +207,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,node,linux,windows,sam
 
-shared/code/nodejs/node_modules/antinoPms__config.js
 shared/lib/nodejs/*/
 shared/lib/nodejs/package-lock.json

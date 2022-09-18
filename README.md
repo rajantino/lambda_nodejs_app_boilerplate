@@ -45,14 +45,13 @@ Folder Structure
 
 
 
-# every lambda will have its own folder and will be having app.js , service.js and dao.js files inside it
- # this folder will be having the common code shared throught the application (all lambdas) like utils
- # this folder will be having all npm modules used throughout all the lambda functions
- # this file is used just for local development purpose to run the start and watch script with cross-env  and nodemon 
-  # in this file we define our aws resources using cloudformation 
+lambdas ----> every lambda will have its own folder and will be having app.js , service.js and dao.js files inside it
+shared/code/nodejs/node_modules ----> this folder will be having the common code shared throught the application (throughout all lambdas) like utils
+shared/lib/nodejs/node_modules ----> this folder will be having all npm modules used throughout all the lambda functions
+package.json ---> this file is used just for local development purpose to run the start and watch script with cross-env  and nodemon 
+template.yaml ---> in this file we define our aws resources using cloudformation 
 
-
-shared/code/nodejs/node_modules/antinoPms_config  is havind creds so it is included in .gitignore file
+shared/code/nodejs/node_modules/antinoPms_config ---> this file is having creds so we can include it in .gitignore file if required
 
 </pre>
 
