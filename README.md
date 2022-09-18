@@ -1,5 +1,6 @@
 # AWS Lambda Application (NodeJS) Boilerplate using SAM CLI
 
+<pre>
 This Boilerplate is Created by Using
 
 1) AWS SAM CLI
@@ -44,8 +45,10 @@ Folder Structure
 
 shared/code/nodejs/node_modules/antinoPms_config  is havind creds so it is included in .gitignore file
 
+</pre>
 
 # Setup Required to Run this Application Locally and Deploy to AWS. 
+<pre>
 1) Install AWS CLI
 2) Install Docker   # Docker is required to run lambdas locally
 3) Install SAM CLI
@@ -62,8 +65,10 @@ shared/code/nodejs/node_modules/antinoPms_config  is havind creds so it is inclu
 5) Get the Secret Key and Acces Key of that AWS IAM user
 6) Configure AWS CLI- https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 
+</pre>
 
 # How to Run This application Locally
+<pre>
 1) install nodemon globally
 2) run npm install at root folder of this appliaction to install cross-env
 3) run npm install on shared/lib/nodejs path to install npm dependencies
@@ -110,17 +115,19 @@ localhost:3061/login
 set Bearer token in headers
 
 11) we can change the port from 'start' script in package.json
+</pre>
 
 # Deploy to AWS 
-
+<pre>
 1) change database config details if using Local DB for development
 2) 1st time --> 
           a) sam build 
           b) sam deploy --guided
-3) afterwards --> sam deploy
+3) afterwards -->
           a) sam build 
           b) sam deploy 
 4) once deployed successfully login to aws console and go to lambda functions select lambda function go to configuration tab there you will se Api gateway under trigger copy API endpoint that is the api , you can test it with Postman or use it in front end applications like Angular , React etc.
+</pre>
 
 # Share npm modules and common code (util files) with all lambdas
 
